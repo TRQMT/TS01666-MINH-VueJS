@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap 5</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../LAB1/css/bootstrap.min.css">
+    <!-- Bootstrap JS -->
+    <script src="../LAB1/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+
+<body>
+    <nav class="navbar navbar-expand-sm navbar-light bg-light sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="../LAB1/images/logo-energy-pilates.png" alt="Logo" style="width: 150px;">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="#"><i class="fa-solid fa-list"></i>Bai viet</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="#"><i class="fa-solid fa-film"></i>Video</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="#"><i class="fa-solid fa-circle-info"></i> Gioi thieu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="#"><i class="fa-solid fa-calendar-days"></i> Sự kiện</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"><i
+                                class="fa-solid fa-user text-dark"></i> Tai khoan</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Dang nhap</a></li>
+                            <li><a class="dropdown-item" href="#">Quen mat khau</a></li>
+                            <li><a class="dropdown-item" href="#">Dang ký thanh vien</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="navbar-nav d-flex">
+                    <li class="nav-item">
+                        <a class="nav-link">Tieng Việt </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">Tieng Anh</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-4">
+                <h3 class="text-custom-blue mb-3 text-info fw-bold">Về tôi</h3>
+                <div class="card p-4 text-center mb-4 shadow-sm">
+                    <div class="d-flex justify-content-center mb-3">
+                        <img src="./images/avatar.png" alt="Avatar" class="profile-img border border-2 w-100">
+                    </div>
+                    <h5 class="fw-bold">Giới thiệu bản thân</h5>
+                    <p class="small text-muted text-start">TS. Trần Hoàng, Tổ chức Tư vấn sức khỏe quốc tế độc
+                        lập<br>
+                        Châm ngôn: Ta không được chọn nơi mình sinh ra, nhưng ta được chọn cách mình sẽ sống</p>
+                </div>
+
+                <h4 class="text-custom-blue mb-3 text-info fw-bold">Chuyên mục</h4>
+                <div class="list-group shadow-sm">
+                    <a href="#"
+                        class="list-group-item list-group-item-action d-flex justify-content-between align-items-center bg-custom-blue border-0 bg-info">
+                        Chế độ tập <span class="badge bg-primary">12</span>
+                    </a>
+                    <a href="#"
+                        class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                        Chế độ dinh dưỡng <span class="badge bg-primary">15</span>
+                    </a>
+                    <a href="#"
+                        class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                        Cẩm nang cuộc sống <span class="badge bg-primary">99</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <h4 class="text-custom-blue mb-3 text-info fw-bold">Blog của tôi</h4>
+                <div class="card p-3 shadow-sm">
+                    <div class="row">
+                        <div class="col-lg-7">
+                            <div class="card border-0">
+                                <h6 class="fw-bold">Phương pháp tập Pilates giúp phục hồi chấn thương cột sống <i
+                                        class="bi bi-chat-dots"></i> 16</h6>
+                                <img src="./images/tap-piltes.jpg" class="img-fluid rounded mb-2" alt="Pilates">
+                                <p class="small text-muted">Ngoài việc giúp duy trì vóc dáng, cải thiện sự linh hoạt,
+                                    dẻo
+                                    dai cho người tập, Pilates giúp cơ bắp và các khớp mọc dài hơn, kéo giãn hơn...</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="d-flex mb-3">
+                                <img src="./images/corevalue.jpg" class="rounded me-2"
+                                    style="width: 80px; height: 60px; object-fit: cover;">
+                                <div>
+                                    <h6 class="small mb-1 fw-bold">Biết ơn đời, đời sẽ thương ta</h6>
+                                    <small class="text-muted"><i class="bi bi-chat-dots"></i> 30</small>
+                                </div>
+                            </div>
+                            <div class="d-flex mb-3">
+                                <img src="./images/orange_300x300.jpg" class="rounded me-2"
+                                    style="width: 80px; height: 60px; object-fit: cover;">
+                                <div>
+                                    <h6 class="small mb-1 fw-bold">9 tác dụng tuyệt vời của quả cam</h6>
+                                    <small class="text-muted"><i class="bi bi-chat-dots"></i> 28</small>
+                                </div>
+                            </div>
+                            <div class="d-flex mb-3">
+                                <img src="./images/sesameoil_300x300.jpg" class="rounded me-2"
+                                    style="width: 80px; height: 60px; object-fit: cover;">
+                                <div>
+                                    <h6 class="small mb-1 fw-bold">10 công dụng bất ngờ từ dầu dừa</h6>
+                                    <small class="text-muted"><i class="bi bi-chat-dots"></i> 15</small>
+                                </div>
+                            </div>
+                            <div class="d-flex mb-3">
+                                <img src="./images/spinach_300x300.jpg" class="rounded me-2"
+                                    style="width: 80px; height: 60px; object-fit: cover;">
+                                <div>
+                                    <h6 class="small mb-1 fw-bold">Lợi ích khi ăn rau mỗi ngày</h6>
+                                    <small class="text-muted"><i class="bi bi-chat-dots"></i> 12</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center mt-3">
+                        <button class="btn btn-more px-4">Xem thêm</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
