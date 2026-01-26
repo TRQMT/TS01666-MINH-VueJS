@@ -63,7 +63,6 @@ import { RouterLink } from 'vue-router'
 import LoginView from '../views/LoginView.vue'
 import RegisterView from '../views/RegisterView.vue'
 
-// Tạm thời: giả lập trạng thái đăng nhập (Y2 sau làm thật)
 const isLoggedIn = ref(false)
 
 const authModal = ref('none') // 'none' | 'login' | 'register'
@@ -72,7 +71,7 @@ const openRegister = () => (authModal.value = 'register')
 const closeModal = () => (authModal.value = 'none')
 </script>
 
-<style scoped>
+<<style scoped>
 .brand {
   display: flex;
   align-items: baseline;
@@ -91,7 +90,7 @@ const closeModal = () => (authModal.value = 'none')
 }
 
 .search {
-  width: min(520px, 100%);
+  width: min(600px, 100%);
 }
 .nav-sm .nav-link {
   padding: 0.35rem 0.6rem;
@@ -119,4 +118,4 @@ const closeModal = () => (authModal.value = 'none')
   padding: 14px;
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
 }
-</style>
+</style> 
