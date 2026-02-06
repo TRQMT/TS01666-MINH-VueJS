@@ -1,15 +1,46 @@
+// src/router/index.js
 import { createRouter, createWebHistory } from 'vue-router'
+import { store } from '../store.js'
+
+import HomeView from '../views/HomeView.vue'
 import LoginView from '../views/LoginView.vue'
 import RegisterView from '../views/RegisterView.vue'
-import HomeView from '../views/HomeView.vue'
 import PostDetailView from '../views/PostDetailView.vue'
-export default createRouter({
+import PostCreateView from '../views/PostCreateView.vue' // Mới
+import ProfileView from '../views/ProfileView.vue'       // Mới
+
+const router = createRouter({
   history: createWebHistory(),
   routes: [
-    { path: '/', component: HomeView },
-    { path: '/posts/:id', component: PostDetailView },
-
-    { path: '/login', component: LoginView },
-    { path: '/register', component: RegisterView },
+    { path: '/', name: 'home', component: HomeView },
+    { path: '/posts/:id', name: 'post-detail', component: PostDetailView },
+    { path: '/login', name: 'login', component: LoginView },
+    { path: '/register', name: 'register', component: RegisterView },
+    
+    // Các route cần đăng nhập mới vào được
+    { 
+      path: '/create-post', 
+      name: 'create-post', 
+      component: PostCreateView,
+      meta: { requiresAuth: true }
+    },
+    { 
+      path: '/profile', 
+      name: 'profile', 
+      component: ProfileView,
+      meta: { requiresAuth: true }
+    },
   ],
 })
+
+// Navigation Guard (Kiểm tra đăng nhập)
+router.beforeEach((to, from, next) => {
+  if (to.meta.requiresAuth && !store.currentUser) {
+    alert('Vui lòng đăng nhập để sử dụng chức năng này!')
+    next('/login')
+  } else {
+    next()
+  }
+})
+
+export default router

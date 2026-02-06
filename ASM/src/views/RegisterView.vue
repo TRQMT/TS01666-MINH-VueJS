@@ -21,6 +21,18 @@
 
 <script setup>
 import { reactive } from 'vue'
+import { store } from '../store.js'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 const form = reactive({ name: '', email: '', password: '' })
-const onSubmit = () => console.log(form)
+
+const onSubmit = () => {
+  // Logic đơn giản: thêm user vào mảng
+  store.register({ ...form, avatar: '' })
+  alert('Đăng ký thành công! Vui lòng đăng nhập.')
+  router.push('/login')
+}
 </script>
+<!-- Template giữ nguyên như cũ -->
+

@@ -16,6 +16,21 @@
 
 <script setup>
 import { reactive } from 'vue'
+import { store } from '../store.js'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 const form = reactive({ email: '', password: '' })
-const onSubmit = () => console.log(form)
+
+const onSubmit = () => {
+  const success = store.login(form.email, form.password)
+  if (success) {
+    alert('Đăng nhập thành công!')
+    router.push('/')
+  } else {
+    alert('Sai email hoặc mật khẩu!')
+  }
+}
 </script>
+<!-- Template giữ nguyên như cũ -->
+
