@@ -120,5 +120,26 @@ export const store = reactive({
     localStorage.setItem('currentUser', JSON.stringify(this.currentUser))
     const index = this.users.findIndex(u => u.email === this.currentUser.email)
     if(index !== -1) this.users[index] = this.currentUser
-  }
+  },
+
+   // Xóa bài viết dựa vào ID
+  deletePost(id) {
+    if(confirm('Bạn có chắc chắn muốn xóa bài viết này không?')) {
+      // Lọc bỏ bài viết có id trùng khớp
+      this.posts = this.posts.filter(p => p.id !== id)
+      return true // Trả về true nếu xóa thành công
+    }
+    return false
+  },
+
+  // Cập nhật bài viết
+  updatePost(id, newContent) {
+    const index = this.posts.findIndex(p => p.id === id)
+    if (index !== -1) {
+      // Giữ lại id, author, date cũ, chỉ update title, content, image mới
+      this.posts[index] = { ...this.posts[index], ...newContent }
+      return true
+    }
+    return false
+  },
 })

@@ -6,22 +6,18 @@
           <h4 class="mb-0">Đăng bài viết mới</h4>
         </div>
         <div class="card-body">
+          <!-- 1. QUAN TRỌNG: Phải có .prevent ở đây -->
           <form @submit.prevent="submitPost">
+
             <div class="mb-3">
-              <label class="form-label">Tiêu đề bài viết</label>
+              <label class="form-label">Tiêu đề</label>
               <input v-model="post.title" type="text" class="form-control" required>
             </div>
 
-            <!-- THAY ĐỔI: Chọn ảnh từ máy -->
             <div class="mb-3">
-              <label class="form-label">Hình ảnh minh họa</label>
+              <label class="form-label">Hình ảnh</label>
               <input type="file" class="form-control" @change="handleFileUpload" accept="image/*">
-
-              <!-- Xem trước ảnh nếu đã chọn -->
-              <div v-if="post.image" class="mt-3">
-                <p class="text-muted small">Xem trước:</p>
-                <img :src="post.image" class="img-thumbnail" style="max-height: 200px">
-              </div>
+              <img v-if="post.image" :src="post.image" class="mt-2" height="150">
             </div>
 
             <div class="mb-3">
@@ -43,21 +39,18 @@
 <script setup>
 import { reactive } from 'vue'
 import { store } from '../store.js'
-import { useRouter } from 'vue-router'
+import { useRouter } from 'vue-router' // 2. Import useRouter
 
-const router = useRouter()
-const post = reactive({ title: '', content: '', image: null }) // image mặc định là null
+const router = useRouter() // 3. Khai báo router (BẮT BUỘC)
 
-// Hàm xử lý khi người dùng chọn file
+const post = reactive({ title: '', content: '', image: null })
+
 const handleFileUpload = (event) => {
-  const file = event.target.files[0] // Lấy file đầu tiên
+  const file = event.target.files[0]
   if (file) {
     const reader = new FileReader()
-    reader.onload = (e) => {
-      // Khi đọc xong, gán kết quả (Base64 string) vào biến post.image
-      post.image = e.target.result
-    }
-    reader.readAsDataURL(file) // Bắt đầu đọc file dưới dạng URL
+    reader.onload = (e) => post.image = e.target.result
+    reader.readAsDataURL(file)
   }
 }
 
@@ -65,13 +58,15 @@ const submitPost = () => {
   const newPost = {
     id: Date.now(),
     ...post,
-    author: store.currentUser.name,
+    author: store.currentUser ? store.currentUser.name : 'Ẩn danh',
     date: new Date().toLocaleDateString('vi-VN'),
     comments: []
   }
 
   store.addPost(newPost)
-  alert('Đăng bài thành công!')
+
+  // 4. Chuyển trang
+  // Hãy chắc chắn dòng này nằm CUỐI hàm
   router.push('/')
 }
 </script>

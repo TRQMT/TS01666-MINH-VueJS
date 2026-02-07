@@ -22,7 +22,7 @@
       <h5 class="mt-4 mb-3">Tin mới nhất</h5>
       <div class="row g-3">
         <!-- Duyệt qua danh sách các bài viết còn lại -->
-        <div class="col-md-6" v-for="p in listPosts" :key="p.id">
+        <div class="col-md-4" v-for="p in listPosts" :key="p.id">
           <div class="card h-100">
             <!-- Hiển thị ảnh nếu có -->
             <img v-if="p.image" :src="p.image" class="card-img-top" style="height: 160px; object-fit: cover;">
@@ -82,7 +82,8 @@ const listPosts = computed(() => {
 
 // 3. Logic lấy trending (Ví dụ: lấy 3 bài đầu tiên)
 const trending = computed(() => {
-  return store.posts ? store.posts.slice(0, 3) : []
+  // return store.posts ? store.posts.slice(0, 3) : []
+  return store.posts.filter(post => [1, 6, 2].includes(post.id))
 })
 
 const saveForLater = () => alert('Đã lưu bài viết vào danh sách xem sau!')

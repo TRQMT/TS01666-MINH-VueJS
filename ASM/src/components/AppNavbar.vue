@@ -16,6 +16,9 @@
           <li class="nav-item" v-if="store.currentUser">
             <RouterLink class="nav-link" to="/create-post">Đăng bài</RouterLink>
           </li>
+          <li class="nav-item" v-if="store.currentUser">
+            <RouterLink class="nav-link" to="/admin">Quản lý bài viết</RouterLink>
+          </li>
         </ul>
 
         <div class="d-flex align-items-center gap-2">
